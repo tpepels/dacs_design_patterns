@@ -3,6 +3,7 @@ package design_patterns.abstractfactory;
 // Example usage
 public class Main {
     public static void main(String[] args) {
+
         WidgetFactory factory1 = new WindowsWidgetFactory();
         Button button1 = factory1.createButton();
         button1.paint();

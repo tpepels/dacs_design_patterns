@@ -1,6 +1,6 @@
 package SOLID.interface_seggregation;
 
-/**
+/*
  * In this example, we have a Database interface that defines methods for
  * connecting to a database, inserting data, updating data, and deleting data.
  * However, the MySQLDatabase and OracleDatabase classes violate the ISP because

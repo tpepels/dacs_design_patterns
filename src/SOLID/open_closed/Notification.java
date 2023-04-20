@@ -35,10 +35,12 @@ class BadSMSNotification extends BadNotification {
 
 class BadNotificationSender {
     public void sendNotification(BadNotification notification) {
+
         if (notification.type.equals("email")) {
             BadEmailNotification email = (BadEmailNotification) notification;
             System.out.println("Sending email to " + email.recipient + " with subject: " + email.subject
                     + " and message: " + email.message);
+
         } else if (notification.type.equals("sms")) {
             BadSMSNotification sms = (BadSMSNotification) notification;
             System.out.println("Sending SMS to " + sms.phoneNumber + " with text: " + sms.text);

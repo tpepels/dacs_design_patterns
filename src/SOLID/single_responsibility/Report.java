@@ -1,6 +1,6 @@
 package SOLID.single_responsibility;
 
-/**
+/*
  * In this example, the Report class has three responsibilities: generating a
  * report, saving the report to a file, and sending the report by email. This
  * violates the SRP because the class has more than one reason to change.
