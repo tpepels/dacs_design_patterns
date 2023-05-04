@@ -1,8 +1,8 @@
-package rpc.client;
+package architectures.rpc.client;
 
 import java.rmi.Naming;
 
-import rpc.Calculator;
+import architectures.rpc.Calculator;
 
 /**
  * This class looks up the CalculatorService on the server and calls the add and

@@ -1,4 +1,4 @@
-package rpc;
+package architectures.rpc;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

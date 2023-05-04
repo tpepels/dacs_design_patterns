@@ -1,9 +1,9 @@
-package rpc.server;
+package architectures.rpc.server;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-import rpc.Calculator;
+import architectures.rpc.Calculator;
 
 /**
  * This class creates an instance of the CalculatorImpl class, registers it with

@@ -1,9 +1,9 @@
-package rpc.server;
+package architectures.rpc.server;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import rpc.Calculator;
+import architectures.rpc.Calculator;
 
 public class CalculatorImpl extends UnicastRemoteObject implements Calculator {
 
