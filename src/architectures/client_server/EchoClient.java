@@ -24,7 +24,7 @@ import java.net.Socket;
 
 public class EchoClient {
     public static void main(String[] args) throws IOException {
-        String hostname = "localhost";
+        String hostname = "127.0.0.1";
         int port = 8080;
 
         try (Socket socket = new Socket(hostname, port)) {
