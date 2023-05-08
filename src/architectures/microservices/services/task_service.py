@@ -1,5 +1,12 @@
 from flask import Flask, jsonify, request
 
+# Requirements:
+# To install Flask, run the following command in the terminal or command prompt:
+# pip install Flask
+# Requests: A popular Python library for making HTTP requests.
+# To install Requests, run the following command in the terminal or command prompt:
+# pip install requests
+
 app = Flask(__name__)
 
 tasks = []
