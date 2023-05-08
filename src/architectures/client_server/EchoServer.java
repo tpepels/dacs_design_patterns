@@ -7,6 +7,7 @@ import java.net.Socket;
 public class EchoServer {
     public static void main(String[] args) throws IOException {
         int port = 8080;
+
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server is listening on port " + port);
 
