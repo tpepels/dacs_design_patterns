@@ -11,6 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
  * controller. It has a method called greeting that handles HTTP GET requests to
  * the /greeting endpoint. It takes a query parameter called name and returns a
  * Greeting object with a unique id and a formatted content string.
+ * 
+ *
+ * Make sure to include the necessary dependencies in your pom.xml file for the
+ * Spring Boot and Spring Web projects:
+ * 
+ * 
+ * <dependencies>
+ * <dependency>
+ * <groupId>org.springframework.boot</groupId>
+ * <artifactId>spring-boot-starter-web</artifactId>
+ * </dependency>
+ * </dependencies>
+ * 
  */
 
 @RestController

@@ -1,6 +1,18 @@
 from flask import Flask, request, Response
 import requests
 
+# Requirements:
+# To install Flask, run the following command in the terminal or command prompt:
+# pip install Flask
+# Requests: A popular Python library for making HTTP requests.
+# To install Requests, run the following command in the terminal or command prompt:
+# pip install requests
+
+
+#  To run the program, you should navigate to the directory containing the Python script (let's say the script is named api_gateway.py) and execute the following command:
+# python api_gateway.py
+# This will start the API gateway server on port 3000, and users can interact with it using the specified routes.
+
 app = Flask(__name__)
 
 

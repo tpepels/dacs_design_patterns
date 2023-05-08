@@ -1,5 +1,10 @@
 import requests
 
+# Requirements:
+# Requests: A popular Python library for making HTTP requests. To install Requests, run the following command in the terminal or command prompt:
+# Copy code
+# pip install requests
+
 # define the base URL for the API
 base_url = "http://localhost:5001"
 

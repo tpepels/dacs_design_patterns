@@ -9,6 +9,19 @@ import architectures.rest.server.Greeting;
  * /greeting endpoint with the name query parameter set to John. It then maps
  * the response JSON to a Greeting object using the getForObject method, and
  * prints the content of the greeting to the console.
+ * 
+ *
+ * Make sure to include the necessary dependencies in your pom.xml file for the
+ * Spring Boot and Spring Web projects:
+ * 
+ * 
+ * <dependencies>
+ * <dependency>
+ * <groupId>org.springframework.boot</groupId>
+ * <artifactId>spring-boot-starter-web</artifactId>
+ * </dependency>
+ * </dependencies>
+ * 
  */
 
 public class GreetingClient {
