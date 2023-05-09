@@ -14,9 +14,7 @@ This API Gateway is a simple example of a gateway that proxies requests to diffe
 
 2. Clone this repository or download the source files.
 
-3. Navigate to the project directory and install the required dependencies using the provided `requirements.txt` file:
-
-`pip install -r requirements.txt`
+3. Navigate to the project directory and install the required dependencies mentioned in the source files.
 
 ## Running the API Gateway
 
@@ -51,9 +49,9 @@ Please ensure that the microservices for the book catalog, inventory, and orders
 
 2. Download and install Maven from the official website: https://maven.apache.org/download.cgi
 
-3. Clone this repository or download the source files.
+3. Clone this repository or download the source files. Copy them to your own project to use them.
 
-4. Navigate to the Java project directory and build the project using Maven:
+4. Navigate to the Java project directory and rename the example_pom.xml to pom.xml and build the project using Maven:
 
 `mvn clean install`
 
