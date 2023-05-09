@@ -16,13 +16,13 @@ This API Gateway is a simple example of a gateway that proxies requests to diffe
 
 3. Navigate to the project directory and install the required dependencies using the provided `requirements.txt` file:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Running the API Gateway
 
 1. From the project directory, run the following command to start the API gateway server:
 
-python api_gateway.py
+`python api_gateway.py`
 
 This will start the server on port 3000.
 
@@ -55,13 +55,13 @@ Please ensure that the microservices for the book catalog, inventory, and orders
 
 4. Navigate to the Java project directory and build the project using Maven:
 
-mvn clean install
+`mvn clean install`
 
 ### Running the API Gateway
 
 1. From the Java project directory, run the following command to start the API gateway server:
 
-mvn spring-boot:run
+`mvn spring-boot:run`
 
 This will start the server on port 8080.
 
