@@ -1,4 +1,4 @@
-package design_patterns.live.factory;
+package design_patterns.lecture.factory;
 
 import java.util.Objects;
 

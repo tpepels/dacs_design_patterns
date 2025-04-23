@@ -1,4 +1,4 @@
-package design_patterns.live.visitor;
+package design_patterns.lecture.visitor;
 
 import java.util.ArrayList;
 import java.util.List;

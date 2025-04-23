@@ -1,4 +1,4 @@
-package design_patterns.live.strategy;
+package design_patterns.lecture.strategy;
 
 import java.util.ArrayList;
 import java.util.List;

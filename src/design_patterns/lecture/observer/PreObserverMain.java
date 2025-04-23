@@ -1,4 +1,4 @@
-package design_patterns.live.observer;
+package design_patterns.lecture.observer;
 
 // --- Display Components (Potential Observers) ---
 

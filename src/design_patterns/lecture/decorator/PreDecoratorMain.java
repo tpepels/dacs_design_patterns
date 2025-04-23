@@ -1,4 +1,4 @@
-package design_patterns.live.decorator;
+package design_patterns.lecture.decorator;
 
 // --- Base Interface and Concrete Notifiers (Assume these exist from Factory example) ---
 
