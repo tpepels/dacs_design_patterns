@@ -3,3 +3,4 @@
 
 # Ignore all files and subdirectories within the .bin directory
 /bin/
+src/design_patterns/live/.DS_Store
