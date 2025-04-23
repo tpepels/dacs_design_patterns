@@ -194,8 +194,8 @@ class ShippingCostVisitor implements CartItemVisitor {
 
 class TaxCalculationVisitor implements CartItemVisitor {
     private double totalTax = 0;
-    private double standardTaxRate = 0.08;
-    private double bookTaxRate = 0.05;
+    private final double standardTaxRate = 0.08;
+    private final double bookTaxRate = 0.05;
 
     public double getTotalTax() {
         return totalTax;
