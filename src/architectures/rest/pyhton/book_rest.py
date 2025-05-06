@@ -11,6 +11,14 @@ app = Flask(__name__)
 books = {
     1: {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": "1925"},
     2: {"title": "To Kill a Mockingbird", "author": "Harper Lee", "year": "1960"},
+    3: {"title": "1984", "author": "George Orwell", "year": "1949"},
+    4: {"title": "Brave New World", "author": "Aldous Huxley", "year": "1932"},
+    5: {"title": "The Catcher in the Rye", "author": "J.D. Salinger", "year": "1951"},
+    6: {"title": "Moby-Dick", "author": "Herman Melville", "year": "1851"},
+    7: {"title": "The Brothers Karamazov", "author": "Fyodor Dostoevsky", "year": "1880"},
+    8: {"title": "One Hundred Years of Solitude", "author": "Gabriel García Márquez", "year": "1967"},
+    9: {"title": "Pride and Prejudice", "author": "Jane Austen", "year": "1813"},
+    10: {"title": "Beloved", "author": "Toni Morrison", "year": "1987"},
 }
 
 
