@@ -1,35 +1,56 @@
 import requests
+import time
 
-# Requirements:
-# Requests: A popular Python library for making HTTP requests. To install Requests, run the following command in the terminal or command prompt:
-# Copy code
-# pip install requests
 
-# define the base URL for the API
-base_url = "http://localhost:5001"
+class BookClient:
+    def __init__(self, base_url="http://localhost:5001"):
+        self.base_url = base_url
 
-# GET /books
-response = requests.get(f"{base_url}/books")
-print(response.json())
+    def _request(self, method, endpoint, **kwargs):
+        url = f"{self.base_url}{endpoint}"
+        print(f"\n=== {method} {endpoint} ===")
+        start = time.time()
+        response = requests.request(method, url, **kwargs)
+        duration = time.time() - start
 
-# GET /books/{id}
-response = requests.get(f"{base_url}/books/1")
-print(response.json())
+        print(f"Status: {response.status_code} ({duration:.2f}s)")
+        if response.ok:
+            print("Response:", response.json())
+            return response.json()
+        else:
+            print("Error:", response.text)
+            return None
 
-# POST /books
-data = {"title": "The Sun Also Rises", "author": "Ernest Hemingway", "year": "1926"}
-response = requests.post(f"{base_url}/books", json=data)
-print(response.json())
+    def get_all_books(self):
+        return self._request("GET", "/books")
 
-# PUT /books/{id}
-data = {"title": "The Catcher in the Rye", "author": "J.D. Salinger", "year": "1951"}
-response = requests.put(f"{base_url}/books/3", json=data)
-print(response.json())
+    def get_book(self, book_id):
+        return self._request("GET", f"/books/{book_id}")
 
-# DELETE /books/{id}
-response = requests.delete(f"{base_url}/books/3")
-print(response.json())
+    def create_book(self, title, author, year):
+        data = {"title": title, "author": author, "year": year}
+        return self._request("POST", "/books", json=data)
 
-# GET /books (again to show the updated list)
-response = requests.get(f"{base_url}/books")
-print(response.json())
+    def update_book(self, book_id, title=None, author=None, year=None):
+        data = {"title": title, "author": author, "year": year}
+        return self._request("PUT", f"/books/{book_id}", json=data)
+
+    def delete_book(self, book_id):
+        return self._request("DELETE", f"/books/{book_id}")
+
+
+def main():
+    client = BookClient()
+
+    client.get_all_books()
+    client.get_book(1)
+
+    client.create_book("The Sun Also Rises", "Ernest Hemingway", "1926")
+    client.update_book(3, "The Catcher in the Rye", "J.D. Salinger", "1951")
+    client.delete_book(3)
+
+    client.get_all_books()
+
+
+if __name__ == "__main__":
+    main()
