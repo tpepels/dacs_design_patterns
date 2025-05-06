@@ -1,72 +1,69 @@
-from flask import Flask, jsonify, request
-
-# Requirements:
-# To install Flask, run the following command in the terminal or command prompt:
-# pip install Flask
-# Requests: A popular Python library for making HTTP requests.
-# To install Requests, run the following command in the terminal or command prompt:
-# pip install requests
+from flask import Flask, jsonify, request, abort
 
 app = Flask(__name__)
 
-# define some example data
-books = [
-    {"id": 1, "title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": "1925"},
-    {"id": 2, "title": "To Kill a Mockingbird", "author": "Harper Lee", "year": "1960"},
-]
+# REST Constraints:
+# - Stateless: Each request contains all necessary information
+# - Resource-based: Books are the core resource, identified by URIs
+# - Uniform Interface: GET, POST, PUT, DELETE for interacting with resources
+
+# Example data as a dictionary for efficient lookup
+books = {
+    1: {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": "1925"},
+    2: {"title": "To Kill a Mockingbird", "author": "Harper Lee", "year": "1960"},
+}
 
 
 # GET /books
 @app.route("/books", methods=["GET"])
 def get_books():
-    return jsonify({"books": books})
+    return jsonify({"books": [{**{"id": id}, **data} for id, data in books.items()]})
 
 
 # GET /books/{id}
 @app.route("/books/<int:book_id>", methods=["GET"])
 def get_book(book_id):
-    book = [book for book in books if book["id"] == book_id]
-    if len(book) == 0:
+    book = books.get(book_id)
+    if book is None:
         abort(404)
-    return jsonify({"book": book[0]})
+    return jsonify({"book": {**{"id": book_id}, **book}})
 
 
 # POST /books
 @app.route("/books", methods=["POST"])
 def create_book():
-    if not request.json or not "title" in request.json:
+    if not request.json or "title" not in request.json:
         abort(400)
+    new_id = max(books.keys(), default=0) + 1
     book = {
-        "id": books[-1]["id"] + 1,
         "title": request.json["title"],
         "author": request.json.get("author", ""),
         "year": request.json.get("year", ""),
     }
-    books.append(book)
-    return jsonify({"book": book}), 201
+    books[new_id] = book
+    return jsonify({"book": {**{"id": new_id}, **book}}), 201
 
 
 # PUT /books/{id}
 @app.route("/books/<int:book_id>", methods=["PUT"])
 def update_book(book_id):
-    book = [book for book in books if book["id"] == book_id]
-    if len(book) == 0:
+    if book_id not in books:
         abort(404)
     if not request.json:
         abort(400)
-    book[0]["title"] = request.json.get("title", book[0]["title"])
-    book[0]["author"] = request.json.get("author", book[0]["author"])
-    book[0]["year"] = request.json.get("year", book[0]["year"])
-    return jsonify({"book": book[0]})
+    book = books[book_id]
+    book["title"] = request.json.get("title", book["title"])
+    book["author"] = request.json.get("author", book["author"])
+    book["year"] = request.json.get("year", book["year"])
+    return jsonify({"book": {**{"id": book_id}, **book}})
 
 
 # DELETE /books/{id}
 @app.route("/books/<int:book_id>", methods=["DELETE"])
 def delete_book(book_id):
-    book = [book for book in books if book["id"] == book_id]
-    if len(book) == 0:
+    if book_id not in books:
         abort(404)
-    books.remove(book[0])
+    del books[book_id]
     return jsonify({"result": True})
 
 

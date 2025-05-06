@@ -3,7 +3,7 @@ package refactoring.shotgun_surgery;
 // To avoid shotgun surgery, we can use better encapsulation and modularization 
 // by introducing new classes to handle specific responsibilities.
 
-//  1. Encapsulation: The responsibilities are divided among Order, OrderService, Database, and EmailService classes.
+//  1.  Encapsulation: The responsibilities are divided among Order, OrderService, Database, and EmailService classes.
 // 	2.	Single Responsibility Principle: Each class now has a single responsibility, making the code easier to maintain.
 // 	3.	Reduced Shotgun Surgery: Changes to the order processing workflow can be made in the OrderService class, reducing the need to modify multiple methods across different classes.
 // 	4.	Flexibility: It is easier to add new order statuses or change email content by modifying only the relevant parts of the OrderService and EmailService classes.
